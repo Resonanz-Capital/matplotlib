@@ -298,7 +298,7 @@ class TexManager:
             with TemporaryDirectory(dir=cwd) as tmpdir:
                 tmppath = Path(tmpdir)
                 cls._run_checked_subprocess(
-                    ["latex", "-interaction=nonstopmode", "--halt-on-error",
+                    ["xelatex", "-interaction=nonstopmode", "--halt-on-error",
                      f"--output-directory={tmppath.name}",
                      f"{texfile.name}"], tex, cwd=cwd)
                 (tmppath / Path(dvifile).name).replace(dvifile)
