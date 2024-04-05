@@ -211,7 +211,6 @@ class TexManager:
             r"% in usetex mode.",
             r"\newcommand{\mathdefault}[1]{#1}",
             font_preamble,
-            r"\usepackage[utf8]{inputenc}",
             r"\DeclareUnicodeCharacter{2212}{\ensuremath{-}}",
             r"% geometry is loaded before the custom preamble as ",
             r"% convert_psfrags relies on a custom preamble to change the ",

@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 plt.rcParams.update({
     "pgf.texsystem": "pdflatex",
     "pgf.preamble": "\n".join([
-         r"\usepackage[utf8x]{inputenc}",
          r"\usepackage[T1]{fontenc}",
          r"\usepackage{cmbright}",
     ]),
