@@ -128,7 +128,7 @@ from packaging.version import parse as parse_version
 
 # cbook must import matplotlib only within function
 # definitions, so it is safe to import from it here.
-from . import _api, _version, cbook, _docstring, rcsetup
+from . import _api, cbook, _docstring, rcsetup
 from matplotlib.cbook import sanitize_sequence
 from matplotlib._api import MatplotlibDeprecationWarning
 from matplotlib.rcsetup import validate_backend, cycler
@@ -181,23 +181,7 @@ def _parse_to_version_info(version_str):
 
 
 def _get_version():
-    """Return the version string used for __version__."""
-    # Only shell out to a git subprocess if really needed, i.e. when we are in
-    # a matplotlib git repo but not in a shallow clone, such as those used by
-    # CI, as the latter would trigger a warning from setuptools_scm.
-    root = Path(__file__).resolve().parents[2]
-    if ((root / ".matplotlib-repo").exists()
-            and (root / ".git").exists()
-            and not (root / ".git/shallow").exists()):
-        import setuptools_scm
-        return setuptools_scm.get_version(
-            root=root,
-            version_scheme="release-branch-semver",
-            local_scheme="node-and-date",
-            fallback_version=_version.version,
-        )
-    else:  # Get the version from the _version.py setuptools_scm file.
-        return _version.version
+    return '3.7.1'
 
 
 @_api.caching_module_getattr
